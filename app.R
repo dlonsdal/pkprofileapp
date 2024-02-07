@@ -83,7 +83,7 @@ server <- function(input, output) {
     y <- pkprofile(time, cl=cl, vc=v, ka=ka, dose=list(t.dose=doses, amt=d,f=F))
     dat<-data.frame(y)
     th_calc=data.frame(result=round(log(2)*v/cl,2))
-    ss_calc=data.frame(result=round( d/(cl),2))
+    ss_calc=data.frame(result=round( d/(cl*tor),2))
     
     ggplot(data=data.frame(y), aes(x=time, y=conc,))+
       geom_line()+
